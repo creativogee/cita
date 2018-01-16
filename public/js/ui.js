@@ -7,15 +7,16 @@ const modal = document.getElementById('modal')
 
 convertButton.addEventListener('click', async (evt) => {
   evt.preventDefault()
-  const {authoursAndYear, title, journal, edition, pages, error} = await convertCitation(citationInput.value)
+  const {authoursAndYear, title, journal, edition, pages, error} = convertCitation(citationInput.value)
 
   if (authoursAndYear && title) {
     result.innerHTML = `${authoursAndYear} ${title} <i>${journal}</i> <b>${edition}</b> ${pages}` 
   } else {
+    if(citationInput.value === '') {
+      result.innerHTML = ''
+    }
     modal.classList.remove('invisible')
     modal.textContent = error
-    citationInput.value = ''
-    result.innerHTML = ''
     setTimeout(() => {
       modal.classList.add('invisible')
     }, 3000) 

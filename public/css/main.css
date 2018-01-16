@@ -7,16 +7,12 @@
 
 a {
   text-decoration: none;
-  color: #0b2b40;
+  color: white;
   font-weight: 900;
-  padding: .3125rem .625rem;
-  border: .0625rem solid #0b2b40;
-  border-radius: .3125rem;
 }
 
 a:hover {
-  color: rgb(226, 226, 226);
-  background-color: #0b2b40;
+  color: rgb(192, 191, 191)
 }
 
 body {
@@ -26,7 +22,8 @@ body {
   justify-content: space-between;
   width: 50%;
   margin: 0 auto;
-  background-color: rgb(236, 236, 236);
+  background-color: #0d2b41;
+  color: white;
 }
 
 header {
@@ -35,6 +32,7 @@ header {
 
 main {
   margin-bottom: 1rem;
+  
 }
 
 .input-citation-form {
@@ -44,10 +42,12 @@ main {
 }
 
 .raw-citation {
+  margin-top: 1rem;
   padding: .625rem .3125rem;
   border-radius: .3125rem;
   border: .0625rem solid grey;
   margin-bottom: 1rem;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .btn {
@@ -70,11 +70,12 @@ main {
   flex-direction: column;
   justify-content: space-between;
   padding: .3125rem;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border: .0625rem solid gray;
   border-radius: .3125rem;
   height: 12rem;
   margin-bottom: 1rem;
+  color: black;
 }
 
 nav {
@@ -92,7 +93,6 @@ ul {
 footer {
   display: flex;
   justify-content: center;
-  color: #0b2b40;
   padding-bottom: 1rem;
 }
 
@@ -101,6 +101,7 @@ footer {
   font-size: .3125rem;
   color: rgb(168, 168, 168);
   justify-content: flex-end;
+  font-weight: 500;
 }
 
 .about {
@@ -113,10 +114,15 @@ footer {
 }
 
 .modal {
-  color: #d9042b;
-  width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   text-align: center;
-  margin: 0 auto;
+  color: #f86580;
+  background-color: #37444d;
+  border-radius: 2px;
+  height: 2.5rem;
+  width: 100%;
 }
 
 .invisible {
