@@ -1,4 +1,4 @@
 [build]
   base    = "public"
   publish = "public/page"
-  command = ""
+  command = "npm run start"
