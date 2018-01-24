@@ -41,13 +41,19 @@ main {
   justify-content: space-between;
 }
 
-.raw-citation {
+.raw-citation, .message {
   margin-top: 1rem;
   padding: .625rem .3125rem;
   border-radius: .3125rem;
   border: .0625rem solid grey;
   margin-bottom: 1rem;
   font-family: 'Times New Roman', Times, serif;
+}
+
+.message {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .btn {
