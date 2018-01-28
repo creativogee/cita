@@ -29,7 +29,7 @@ let dividerFour
 
 //splitter regular expressions
 let regexOne = /\(\d+\)\./mg
-let regexTwo = /[a-z]{2,}\.$/mgi
+let regexTwo = /[a-z]{2,}(\?*\.)$/mgi
 let regexThree = /[0-9]+\([a-z0-9]+\),$|\([a-z0-9]+\),$|\d+,/gmi
 
 //identifier regular expressions
@@ -93,14 +93,14 @@ newCitation.map((item, index, arr) => {
         partThree = arr.slice(dividerTwo, dividerThree)
         partFour = arr.slice(dividerThree, dividerFour)
         partFive = arr.slice(dividerFour) 
-        return
+        return true
     } else if (item.match(digitDot)  && arr[index + 1]) {
         dividerThree = index - 1
         dividerFour = arr.length
         partThree = arr.slice(dividerTwo, dividerThree)
         partFour = arr.slice(dividerThree, dividerFour)
         partFive = arr.slice(dividerFour) 
-        return
+        return true
     } else if (item.match(digitDot) && !arr[index + 1]) {
         if(arr[index - 1].match(digit)) {
             dividerThree = index - 1
@@ -113,13 +113,13 @@ newCitation.map((item, index, arr) => {
         partThree = arr.slice(dividerTwo, dividerThree)
         partFour = arr.slice(dividerThree, dividerFour)
         partFive = arr.slice(dividerFour)
+        return true
     } else {
         dividerThree = index + 1
         partThree = arr.slice(dividerTwo, dividerThree)
     }
 })
 //-----------------------------
-
 //processing partOne? (required)
 partOne.map((item, index, arr) => {
     if(item.match(name)){
@@ -174,7 +174,7 @@ let markup = `${authoursAndYear} ${title} <i>${journal}</i> <b>${edition}</b> ${
 if(markup === result.innerHTML) {
     throw 'Your result is ready'
 }
-if(!authoursAndYear && !title) {
+if(!authoursAndYear || !title || !journal) {
     throw 'There has been an error. Please try another citation'
 }
 
