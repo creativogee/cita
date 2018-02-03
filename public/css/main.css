@@ -104,7 +104,7 @@ footer {
 
 .hint {
   display: flex;
-  font-size: .3125rem;
+  font-size: 1rem;
   color: rgb(168, 168, 168);
   justify-content: center;
   text-align: center;
