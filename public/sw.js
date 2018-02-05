@@ -1,4 +1,4 @@
-const staticCacheName = 'cita-app-v01.1';
+const staticCacheName = 'cita-app-v01.2';
 const dynamicCacheName = 'site-dynamic';
 
 const assets = [
