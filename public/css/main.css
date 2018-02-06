@@ -12,7 +12,7 @@ a {
 }
 
 a:hover {
-  color: rgb(192, 191, 191)
+  color: rgb(192, 191, 191);
 }
 
 body {
@@ -32,7 +32,6 @@ header {
 
 main {
   margin-bottom: 1rem;
-  
 }
 
 .input-citation-form {
@@ -41,13 +40,14 @@ main {
   justify-content: space-between;
 }
 
-.raw-citation, .message {
+.raw-citation,
+.message {
   margin-top: 1rem;
-  padding: .625rem .3125rem;
-  border-radius: .3125rem;
-  border: .0625rem solid grey;
+  padding: 0.625rem 0.3125rem;
+  border-radius: 0.3125rem;
+  border: 0.0625rem solid grey;
   margin-bottom: 1rem;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .message {
@@ -57,28 +57,45 @@ main {
 }
 
 .btn {
-  padding: .625rem;
+  padding: 0.625rem;
   margin-bottom: 1rem;
   background-color: aqua;
-  border-radius: .3125rem;
+  border-radius: 0.3125rem;
   border: none;
   font-weight: bold;
-  font-size: .875rem;
+  font-size: 0.875rem;
   cursor: pointer;
 }
 
-.btn:hover {
-  background-color: rgb(127, 225, 255);
+.btn-mini {
+  width: 49.5%;
 }
 
+.btn:hover {
+  background-color: rgb(156, 231, 253);
+}
+.btn-mini:last-child:hover {
+  background-color: rgb(248, 136, 136);
+  border-color: white;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.btn-mini:last-child {
+  background-color: #dd3a58;
+}
 .result-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: .3125rem;
+  padding: 0.3125rem;
   background-color: rgb(255, 255, 255);
-  border: .0625rem solid gray;
-  border-radius: .3125rem;
+  border: 0.0625rem solid gray;
+  border-radius: 0.3125rem;
   height: 12rem;
   margin-bottom: 1rem;
   color: black;
@@ -89,7 +106,7 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 1rem 0;
-  border-bottom: .125rem solid #d9042b;
+  border-bottom: 0.125rem solid #d9042b;
 }
 
 ul {
@@ -115,6 +132,9 @@ footer {
   line-height: 2rem;
 }
 
+.tutorial-link {
+  text-decoration: underline;
+}
 .love {
   color: red;
   text-align: center;
