@@ -133,6 +133,9 @@ footer {
 .line-y {
   line-height: 1.2rem;
 }
+.about {
+  line-height: 2.2rem;
+}
 
 .tutorial-link {
   text-decoration: underline;
