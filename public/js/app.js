@@ -206,9 +206,12 @@ function convertCitation(citation) {
     let intextRef
 
     if (newPartOne.length > 2) {
-      intextRef = `${newPartOne[0]} <i>et al</i>, ${newPartOne[newPartOne.length - 1]}`
+      const firstAuthor = newPartOne[0]
+      const yearinbracks = newPartOne[newPartOne.length - 1]
+      const yearoutbracks = yearinbracks.slice(1, yearinbracks.length - 2)
+      intextRef = `(${firstAuthor} <i>et al</i>, ${yearoutbracks})`
     } else {
-      intextRef = `${newPartOne[0]}, ${newPartOne[newPartOne.length - 1]}`
+      intextRef = `(${firstAuthor}, ${yearoutbracks})`
     }
 
     return { intextRef, authoursAndYear, title, journal, edition, pages }
