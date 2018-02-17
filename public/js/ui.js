@@ -1,4 +1,5 @@
 import convertCitation from "./app.js"
+import { Store } from "./helpers/store.js"
 
 const currentLocation = location.origin
 let refStore = localStorage.getItem("end-ref")
@@ -28,7 +29,7 @@ if (window.location.href.includes("index.html")) {
   convertButton.addEventListener("click", async evt => {
     evt.preventDefault()
     const { intextRef, authoursAndYear, title, journal, edition, pages, error } = convertCitation(
-      citationInput.value
+      citationInput.value,
     )
 
     if (authoursAndYear && title) {
@@ -117,7 +118,7 @@ if (window.location.href.includes("end-citations.html")) {
 
     const refs = storedRef.map(
       (ref, idx) =>
-        `<div class="delete-ref"><div id=${idx} class="delete"></div><p id=${idx} class="ref">${ref}</p></div>`
+        `<div class="delete-ref"><div id=${idx} class="delete"></div><p id=${idx} class="ref">${ref}</p></div>`,
     )
     listWrapper.innerHTML = refs.join(" ")
 
