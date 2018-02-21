@@ -203,6 +203,28 @@ footer {
   text-align: right;
 }
 
+.footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.donate {
+  width: 9rem;
+  margin: auto;
+  background-color: rgb(241, 185, 42);
+  padding: 0.4375rem;
+  border: 1px solid black;
+  border-radius: 1.25rem;
+  margin-bottom: 0.3125rem;
+}
+
+.donate > a {
+  font-family: cursive;
+  color: black;
+  text-align: center;
+}
+
 @keyframes example {
   0% {
     background-color: rgba(255, 0, 0, 0);
