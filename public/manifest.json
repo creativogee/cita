@@ -5,7 +5,7 @@
   "display": "standalone",
   "background_color": "#0b2b40",
   "theme_color": "#0b2b40",
-  "description": "Simple web app which takes an input of citations (APA) as copied from google scholar and edits to standard",
+  "description": "Simple web app which convert references from APA to Havard format",
   "orientation": "portrait-primary",
   "icons": [
     {
