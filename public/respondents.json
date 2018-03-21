@@ -8486,5 +8486,22 @@
     "oswestry": [4, 3, 3, 2, 3, 1, 1, 1, 1, 1],
     "BBQ": [1, 3, 1, 2, 4, 3, 1, 1, 3, 3, 2, 3, 3],
     "LOC": [4, 3, 5, 4, 6, 4, 6, 2, 3, 2, 3, 4, 2, 5, 3, 3, 2]
+  },
+  {
+    "id": 501,
+    "age": 39,
+    "gender": "male",
+    "education": "secondary",
+    "onset": "3 years",
+    "ethnicity": "igbo",
+    "state": "lagos",
+    "religion": "islam",
+    "height": "162 cm",
+    "weight": "73 kg",
+    "occupation": "driver",
+    "pain": 7,
+    "oswestry": [3, 3, 2, 1, 3, 3, 2, 2, 2, 3],
+    "BBQ": [3, 3, 1, 3, 3, 2, 3, 2, 2, 3, 5, 3, 3],
+    "LOC": [6, 4, 5, 5, 5, 4, 3, 2, 4, 1, 5, 4, 3, 6, 3, 6, 1]
   }
 ]
