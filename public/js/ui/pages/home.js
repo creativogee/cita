@@ -1,9 +1,10 @@
-import { convertCitation } from "../../algo/index.js"
-import { Store, dom } from "../helpers/index.js"
-import { Target } from "../factories/index.js"
-import { home } from "../repositories/index.js"
+import { convertCitation } from '../../algo/index.js';
+import { Store, Dom } from '../helpers/index.js';
+import { Target } from '../factories/index.js';
+import { home } from '../repositories/index.js';
 
-const store = new Store("end-ref")
+const store = new Store('end-ref');
+const dom = new Dom();
 
 export const homeHandler = () => {
   const {
@@ -16,73 +17,71 @@ export const homeHandler = () => {
     counter,
     homeCounter,
     modal,
-  } = home
+  } = home;
 
   if (store.total > 0) {
-    dom.show(homeCounter)
+    dom.show(homeCounter);
   }
 
-  counter.textContent = store.total
+  counter.textContent = store.total;
 
-  convertButton.addEventListener("click", async evt => {
-    evt.preventDefault()
+  convertButton.addEventListener('click', async (evt) => {
+    evt.preventDefault();
 
     const { intextRef, authoursAndYear, title, journal, edition, pages, error } = convertCitation(
       citationInput.value,
-    )
+    );
 
     if (authoursAndYear && title) {
-      const formatted = `${authoursAndYear} ${title} <i>${journal}</i> <b>${edition}</b> ${pages}`
+      const formatted = `${authoursAndYear} ${title} <i>${journal}</i> <b>${edition}</b> ${pages}`;
 
-      result.innerHTML = formatted
+      result.innerHTML = formatted;
 
-      inText.innerHTML = intextRef
+      inText.innerHTML = intextRef;
 
       if (!store.retrieve().includes(formatted)) {
-        dom.show(homeCounter)
+        dom.show(homeCounter);
 
-        store.stash(formatted)
+        store.stash(formatted);
 
-        counter.textContent = store.total
+        counter.textContent = store.total;
       }
     } else {
-      result.innerHTML = !citationInput.value ? "" : null
+      result.innerHTML = !citationInput.value ? '' : null;
 
-      dom.show(modal)
+      modal.textContent = error;
 
-      modal.textContent = error
-
-      dom.hide(modal).after(3000)
+      dom.show(modal).hide(3000);
     }
-  })
+  });
 
-  copyButton.addEventListener("click", evt => {
-    evt.preventDefault()
+  copyButton.addEventListener('click', (evt) => {
+    evt.preventDefault();
 
-    const target = new Target(result)
+    const target = new Target(result);
 
-    target.select()
-  })
+    target.select();
+  });
 
-  clearButton.addEventListener("click", evt => {
-    evt.preventDefault()
+  clearButton.addEventListener('click', (evt) => {
+    evt.preventDefault();
 
     if (store.total < 1) {
-      dom.hide(homeCounter)
+      dom.hide(homeCounter);
     }
 
-    counter.textContent = store.total
+    counter.textContent = store.total;
 
-    result.textContent = ""
+    result.textContent = '';
 
-    inText.textContent = ""
-  })
+    inText.textContent = '';
+  });
 
-  citationInput.addEventListener("focusin", () => {
-    citationInput.select()
-  })
+  citationInput.addEventListener('focusin', () => {
+    citationInput.select();
+  });
 
   // if (navigator.userAgent.match(/Mobi|Android/i)) {
   //
   // }
-}
+};

@@ -1,47 +1,26 @@
-export const dom = {
+export class Dom {
+  constructor() {}
   /**
    *
    * @param {object} elem element object
    * @returns object | null
    */
   show(elem) {
-    return {
-      /**
-       * Shows an element
-       * @param {*} ms time in miliseconds
-       * @returns void
-       */
-      after: ms => {
-        if (ms) {
-          return setTimeout(() => {
-            elem.classList.remove("invisible")
-          }, ms)
-        }
-      },
+    this.elem = elem;
+    this.elem.classList.remove('invisible');
+    return this;
+  }
 
-      default: elem.classList.remove("invisible"),
-    }
-  },
   /**
-   * Hides an element
-   * @param {object} elem element object
-   * @returns object | null
+   * hides element after specified delay
+   * @param {*} ms time in miliseconds
+   * @returns void
    */
-  hide(elem) {
-    return {
-      /**
-       * Provides a delay on the hide action
-       * @param {*} ms time in miliseconds
-       * @returns void
-       */
-      after: ms => {
-        if (ms) {
-          return setTimeout(() => {
-            elem.classList.add("invisible")
-          }, ms)
-        }
-      },
-      default: elem.classList.add("invisible"),
+  hide(ms) {
+    if (ms) {
+      return setTimeout(() => {
+        this.elem.classList.add('invisible');
+      }, ms);
     }
-  },
+  }
 }

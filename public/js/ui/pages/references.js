@@ -1,39 +1,41 @@
-import { Store, Location, dom } from "../helpers/index.js"
-import { Target, List } from "../factories/index.js"
-import { references } from "../repositories/index.js"
+import { Store, Location, Dom } from '../helpers/index.js';
+import { Target, List } from '../factories/index.js';
+import { references } from '../repositories/index.js';
 
-const store = new Store("end-ref")
+const store = new Store('end-ref');
+
+const dom = new Dom();
 
 export const referencesHandler = () => {
-  const { listWrapper, copyAllButton, clearAllButton, listCounter, counter } = references
+  const { listWrapper, copyAllButton, clearAllButton, listCounter, counter } = references;
 
-  const baseUrl = Location.baseUrl
+  const baseUrl = Location.baseUrl;
 
-  copyAllButton.addEventListener("click", evt => {
-    evt.preventDefault()
+  copyAllButton.addEventListener('click', (evt) => {
+    evt.preventDefault();
 
-    const target = new Target(listWrapper)
+    const target = new Target(listWrapper);
 
-    target.select()
-  })
+    target.select();
+  });
 
-  clearAllButton.addEventListener("click", evt => {
-    store.clear()
+  clearAllButton.addEventListener('click', (evt) => {
+    store.clear();
 
-    listWrapper.textContent = ""
+    listWrapper.textContent = '';
 
-    location.replace(`${baseUrl}/pages/index.html`)
-  })
+    location.replace(`${baseUrl}/pages/index.html`);
+  });
 
-  counter.textContent = store.total
+  counter.textContent = store.total;
 
   if (store.total > 0) {
-    dom.show(listCounter)
+    dom.show(listCounter);
 
-    const list = store.retrieve()
+    const list = store.retrieve();
 
-    const reference = new List(list, listWrapper)
-    reference.update()
+    const reference = new List(list, listWrapper);
+    reference.update();
 
     // const deleteOne = document.querySelectorAll(".delete")
     // const ref = document.querySelectorAll(".ref")
@@ -47,4 +49,4 @@ export const referencesHandler = () => {
     //   })
     // })
   }
-}
+};

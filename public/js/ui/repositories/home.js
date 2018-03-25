@@ -1,19 +1,19 @@
 export const home = {
-  citationInput: document.getElementById("rawCitation"),
+  citationInput: document.getElementById('rawCitation'),
 
-  convertButton: document.getElementById("convertButton"),
+  convertButton: document.getElementById('convertButton'),
 
-  copyButton: document.getElementById("copyButton"),
+  copyButton: document.getElementById('copyButton'),
 
-  clearButton: document.getElementById("clearButton"),
+  clearButton: document.getElementById('clearButton'),
 
-  result: document.getElementById("result"),
+  result: document.getElementById('result'),
 
-  inText: document.getElementById("inText"),
+  inText: document.getElementById('inText'),
 
-  counter: document.getElementById("counter"),
+  counter: document.getElementById('counter'),
 
-  homeCounter: document.getElementById("homeCounter"),
+  homeCounter: document.getElementById('homeCounter'),
 
-  modal: document.getElementById("modal"),
-}
+  modal: document.getElementById('modal'),
+};
