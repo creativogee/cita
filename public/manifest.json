@@ -1,6 +1,6 @@
 {
-  "name": "Cita app",
-  "short_name": "Cita",
+  "name": "Citar",
+  "short_name": "Citar",
   "start_url": "pages/index.html",
   "display": "standalone",
   "background_color": "#0b2b40",

@@ -1,4 +1,3 @@
-import { InvalidReference } from '../../ui/helpers/index.js';
 import { createIntext } from '../intext.js';
 
 export const processOne = (partOne) => {
@@ -8,6 +7,7 @@ export const processOne = (partOne) => {
   //identifier regular expressions
   let name = /[a-zÀ-ÖØ-öø-ÿ]{2,},$/gim;
   let initials = /^[A-Z]{1,2}\.,*$/gm;
+  let yearexp = /\((.*?)\)./gim;
 
   //processing partOne? (required)
   partOne.map((item, index, arr) => {
@@ -26,10 +26,19 @@ export const processOne = (partOne) => {
     }
   });
 
-  if (!newPartOne[0]) {
-    return new InvalidReference();
-  }
   const { intextRef } = createIntext(newPartOne);
+  let authoursAndYear = newPartOne.join(' ');
 
-  return { intextRef, authoursAndYear: newPartOne.join(' ') };
+  const items = authoursAndYear.split(', ');
+
+  //reference can only contain 6 authors
+  if (items.length > 6) {
+    const authors = items.splice(0, 6).join(', ');
+
+    const year = items[0].match(yearexp);
+
+    authoursAndYear = authors + ' <i>et al</i> ' + year;
+  }
+
+  return { intextRef, authoursAndYear };
 };
