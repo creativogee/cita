@@ -27,7 +27,7 @@ export const processOne = (partOne) => {
   });
 
   if (!newPartOne[0]) {
-    return new InvalidReference('Oops! There was an error, please try another reference');
+    return new InvalidReference();
   }
   const { intextRef } = createIntext(newPartOne);
 

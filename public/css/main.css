@@ -46,7 +46,7 @@ main {
   border-radius: 0.3125rem;
   border: 0.0625rem solid grey;
   margin-bottom: 1rem;
-  font-family: "Times New Roman", Times, serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .btn {
@@ -219,6 +219,10 @@ footer {
   font-family: cursive;
   color: black;
   text-align: center;
+}
+
+.link {
+  color: rgb(240, 205, 116);
 }
 
 @keyframes example {

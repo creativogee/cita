@@ -47,7 +47,10 @@ export const homeHandler = () => {
         counter.textContent = store.total;
       }
     } else {
-      result.innerHTML = !citationInput.value ? '' : null;
+      if (!citationInput.value || error !== 'Your result is ready') {
+        result.innerHTML = '';
+        inText.innerHTML = '';
+      }
 
       modal.textContent = error;
 

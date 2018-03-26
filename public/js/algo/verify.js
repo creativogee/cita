@@ -5,6 +5,6 @@ export const verify = (intextRef, authoursAndYear, title, journal, edition, page
     throw 'Your result is ready';
   }
   if (!intextRef || !authoursAndYear || !title || !journal) {
-    throw 'There has been an error. Please try another citation';
+    throw 'Opps! There was an error. Please try another citation';
   }
 };

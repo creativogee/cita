@@ -27,6 +27,7 @@ export const convertCitation = (citation) => {
     //processing partFour and partFive? (required)
     const { edition, pages } = processFourFive(partFour, partFive);
 
+    // handling possible errors
     verify(intextRef, authoursAndYear, title, journal, edition, pages);
 
     return { intextRef, authoursAndYear, title, journal, edition, pages };
