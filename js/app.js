@@ -1,9 +1,8 @@
-function convertCitation (citation) {
-// console.log(citation.split(' '))
-let noCap = ['a', 'an', 'the', 'at', 'by', 'for', 'in', 'is', 'of', 'on', 'to', 'up', 'and', 'as', 'but', 'or', 'nor']
+async function convertCitation (citation) {
+try {
+    let noCap = ['a', 'an', 'the', 'at', 'by', 'for', 'in', 'is', 'of', 'on', 'to', 'up', 'and', 'as', 'but', 'or', 'nor']
 //new citation string
 let newCitation = []
-let convertedCitation
 //citation string parts
 let partOne = []    //author(s) and year
 let partTwo = []    //tile
@@ -115,17 +114,11 @@ newCitation.map((item, index, arr) => {
         partThree = arr.slice(dividerTwo, dividerThree)
     }
 })
-
-// console.log(partOne)
-// console.log(partTwo)
-// console.log(partThree)
-// console.log(partFour)
-// console.log(partFive)
+//-----------------------------
 
 //processing partOne? (required)
 partOne.map((item, index, arr) => {
     if(item.match(name)){
-        // console.log(item)
         let newItem = item.replace(',', '')
         newPartOne.push(newItem)
     } else if(item.match(initials) && arr[index + 1].match(initials)) {
@@ -145,10 +138,14 @@ newPartTwo = partTwo
 
 //processing partThree? (required)
 if(partThree.length > 0) {
-    newPartThree = [...partThree.slice(0, partThree.length - 1), partThree[partThree.length - 1].replace(',', '')]
+    newPartThree = [
+        ...partThree.slice(0, partThree.length - 1),
+        partThree[partThree.length - 1].replace(',', '')
+    ]
 } else {
     newPartThree = partThree
 }
+
 //processing partFour and partFive? (required)
 if (partFour.length === 0) {
     newPartFour = []
@@ -160,20 +157,25 @@ if (partFour.length === 0) {
     newPartFour =  [partFour[0].replace(',', ':')]
     newPartFive = partFive
 }
+//-----------------------------
 
-// console.log(newPartOne)
-// console.log(newPartTwo)
-// console.log(newPartThree)
-// console.log(newPartFour)
-// console.log(newPartFive)
+const authoursAndYear =  newPartOne.join(' ')
+const title =  newPartTwo.join(' ')
+const journal =  newPartThree.join(' ')
+const edition =  newPartFour.join(' ')
+const pages =  newPartFive.join(' ')
 
-return {
-    authoursAndYear: newPartOne.join(' '),
-    title: newPartTwo.join(' '),
-    journal: newPartThree.join(' '),
-    edition: newPartFour.join(' '),
-    pages: newPartFive.join(' ')
+if(!authoursAndYear && !title) {
+    throw 'There has been an error. Please try another citation'
 }
+return {authoursAndYear, title, journal, edition, pages}
+
+} catch (e) {
+    return {
+        error: e
+    }
+}
+
 }
 
 export default convertCitation
