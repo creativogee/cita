@@ -1,0 +1,4 @@
+[build]
+  base    = "cita"
+  publish = "public/"
+  command = "npm run start"
