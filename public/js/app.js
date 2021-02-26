@@ -1,5 +1,9 @@
-async function convertCitation (citation) {
+function convertCitation (citation) {
+
 try {
+if(citation === '') {
+    throw 'citation field cannot be empty'
+}
     let noCap = ['a', 'an', 'the', 'at', 'by', 'for', 'in', 'is', 'of', 'on', 'to', 'up', 'and', 'as', 'but', 'or', 'nor']
 //new citation string
 let newCitation = []
@@ -165,9 +169,15 @@ const journal =  newPartThree.join(' ')
 const edition =  newPartFour.join(' ')
 const pages =  newPartFive.join(' ')
 
+let markup = `${authoursAndYear} ${title} <i>${journal}</i> <b>${edition}</b> ${pages}`
+
+if(markup === result.innerHTML) {
+    throw 'Your result is ready'
+}
 if(!authoursAndYear && !title) {
     throw 'There has been an error. Please try another citation'
 }
+
 return {authoursAndYear, title, journal, edition, pages}
 
 } catch (e) {
