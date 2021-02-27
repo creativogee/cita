@@ -1,5 +1,6 @@
 import convertCitation from './app.js'
 
+const device = navigator.userAgent
 const citationInput = document.getElementById('rawCitation')
 const convertButton = document.getElementById('convertButton')
 const result = document.getElementById('result')
@@ -28,6 +29,6 @@ citationInput.addEventListener('focusin', () => {
   citationInput.select()
 })
 
-if (/Mobi|Android/i.test(navigator.userAgent)) {
-  hint.textContent = "** long press on the result then select all to copy"
+if (device.match(/Mobi|Android/i)) {
+  hint.textContent = "**long press on the result then select all to copy"
 }
