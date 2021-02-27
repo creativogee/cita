@@ -4,6 +4,7 @@ const citationInput = document.getElementById('rawCitation')
 const convertButton = document.getElementById('convertButton')
 const result = document.getElementById('result')
 const modal = document.getElementById('modal')
+const hint = document.getElementById('hint')
 
 convertButton.addEventListener('click', async (evt) => {
   evt.preventDefault()
@@ -26,3 +27,7 @@ convertButton.addEventListener('click', async (evt) => {
 citationInput.addEventListener('focusin', () => {
   citationInput.select()
 })
+
+if (/Mobi|Android/i.test(navigator.userAgent)) {
+  hint.textContent = "** long press on the result then select all to copy"
+}
