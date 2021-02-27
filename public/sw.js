@@ -2,8 +2,8 @@ const staticCacheName = 'cita-app-v02';
 const dynamicCacheName = 'site-dynamic';
 
 const assets = [
-  'page/index.html',
-  'page/about.html',
+  'index.html',
+  'about.html',
   'image/icon-72x72.png',
   'image/icon-192x192.png',
   'image/icon-256x256.png',
