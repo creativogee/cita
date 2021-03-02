@@ -4,7 +4,9 @@ try {
 if(citation === '') {
     throw 'citation field cannot be empty'
 }
-    let noCap = ['a', 'an', 'the', 'at', 'by', 'for', 'in', 'is', 'of', 'on', 'to', 'up', 'and', 'as', 'but', 'or', 'nor']
+let noCap = ['a', 'despite', 'from', 'with', 'an', 'the', 'at', 'by', 'for', 'in', 'is', 'of', 'on', 'to', 'up', 'and', 'as', 'but', 'or', 'nor']
+let abbrvs = ['Bmj,']
+let expandedAbbrvs = ['British Medical Journal']
 //new citation string
 let newCitation = []
 //citation string parts
@@ -54,10 +56,14 @@ let digit = /\d+/
         return false
     } else if(!noCap.includes(item)) {
         if(item === '&') {
-        let and = item.replace('&', 'and')
-        newCitation.push(and)
+            let and = item.replace('&', 'and')
+            newCitation.push(and)
+        } else if(abbrvs.includes(item)) {
+            let index = abbrvs.indexOf(item)
+            let expItem = expandedAbbrvs[index]
+            newCitation.push(expItem)
         } else {
-        newCitation.push(combinedLetters)
+            newCitation.push(combinedLetters)
         }
     } else {
         newCitation.push(item)
