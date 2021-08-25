@@ -1,51 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b2b40" />
-  <meta name="Description" content="Simple web app which takes an input of citations (APA) as copied from google scholar and edits to standard">
-  <link
-  rel="shortcut icon"
-  type="image/png"
-  href="image/icon-72x72.png"
-/>
-<link
-rel="apple-touch-icon"
-type="image/png"
-href="images/icon-192x192.png"
-/>
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="manifest" href="manifest.json" />
-  <title>Home | Cita</title>
-</head>
-<body>
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-    </nav>
-  </header>
-  
-  <main>
-    <form class="input-citation-form" action="">
-      <label for="rawCitation">Citation: </label>
-      <input id="rawCitation" class="raw-citation" type="text" placeholder="Please paste your citation here (APA format only)">
-      <button id="convertButton" class="btn convert">Edit</button>
-      <div class="result-wrapper">
-        <p id="result" class="result"></p>
-        <div id="hint" class="hint"><p>**triple click on the result to select all then copy</p></div>
-      </div>
-      <p id="modal" class="modal invisible"></p>
-    </form>
-  </main>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b2b40" />
+    <meta
+      name="Description"
+      content="Simple web app which takes an input of citations (APA) as copied from google scholar and edits to standard"
+    />
+    <link rel="shortcut icon" type="image/png" href="image/icon-72x72.png" />
+    <link rel="apple-touch-icon" type="image/png" href="images/icon-192x192.png" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="manifest" href="manifest.json" />
+    <title>Home | Cita</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
 
-  <footer>
-    <p>Created with <span class="love">&#10084;</span> by Creativogee</p>
-  </footer>
-  <script type="module" src="../js/app.js"></script>
-  <script type="module" src="../js/ui.js"></script>
-  <script src="../js/config.js"></script>
-</body>
+    <main>
+      <form class="input-citation-form" action="">
+        <label for="rawCitation">Citation: </label>
+        <textarea
+          rows="2"
+          id="rawCitation"
+          class="raw-citation"
+          placeholder="Please paste your citation here (APA format only)"
+        ></textarea>
+        <button id="convertButton" class="btn convert">Edit</button>
+        <div class="result-wrapper">
+          <p id="result" class="result"></p>
+          <!-- <div id="hint" class="hint">
+            <p>**triple click on the result to select all then copy</p>
+          </div> -->
+        </div>
+        <!-- <button id="copyButton" class="btn convert">Copy</button> -->
+        <p id="modal" class="modal invisible"></p>
+      </form>
+    </main>
+
+    <footer>
+      <p>Created with <span class="love">&#10084;</span> by Creativogee</p>
+    </footer>
+    <script type="module" src="../js/app.js"></script>
+    <script type="module" src="../js/ui.js"></script>
+    <script src="../js/config.js"></script>
+  </body>
 </html>
