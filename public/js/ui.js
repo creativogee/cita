@@ -4,9 +4,9 @@ const device = navigator.userAgent
 const citationInput = document.getElementById("rawCitation")
 const convertButton = document.getElementById("convertButton")
 const copyButton = document.getElementById("copyButton")
+const clearButton = document.getElementById("clearButton")
 const result = document.getElementById("result")
 const modal = document.getElementById("modal")
-const hint = document.getElementById("hint")
 
 convertButton.addEventListener("click", async evt => {
   evt.preventDefault()
@@ -36,9 +36,21 @@ copyButton.addEventListener("click", evt => {
   selection.removeAllRanges()
   selection.addRange(range)
   navigator.clipboard.writeText(result.textContent)
+  console.log(result.textContent)
+
+  if (result.textContent) {
+    copyButton.textContent = "Copied"
+    setTimeout(() => {
+      copyButton.textContent = "Copy Plain Text"
+    }, 1500)
+  }
   /** OR SIMPLY
     navigator.clipboard.writeText(result.innerHTML
   */
+})
+clearButton.addEventListener("click", evt => {
+  evt.preventDefault()
+  result.textContent = ""
 })
 
 citationInput.addEventListener("focusin", () => {
@@ -46,5 +58,5 @@ citationInput.addEventListener("focusin", () => {
 })
 
 if (device.match(/Mobi|Android/i)) {
-  hint.textContent = "**long press on the result then select all to copy"
+  hint.textContent = "**long press to copy formated text"
 }

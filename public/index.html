@@ -32,14 +32,17 @@
           class="raw-citation"
           placeholder="Please paste your citation here (APA format only)"
         ></textarea>
-        <button id="convertButton" class="btn convert">Edit</button>
+        <button id="convertButton" class="btn">Edit</button>
         <div class="result-wrapper">
           <p id="result" class="result"></p>
-          <!-- <div id="hint" class="hint">
-            <p>**triple click on the result to select all then copy</p>
-          </div> -->
+          <div id="hint" class="hint">
+            <p>**triple click to copy formated text</p>
+          </div>
         </div>
-        <!-- <button id="copyButton" class="btn convert">Copy</button> -->
+        <div class="btn-container">
+          <button id="copyButton" class="btn btn-mini">Copy Plain Text</button>
+          <button id="clearButton" class="btn btn-mini">Clear</button>
+        </div>
         <p id="modal" class="modal invisible"></p>
       </form>
     </main>
