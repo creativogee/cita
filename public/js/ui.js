@@ -1,11 +1,15 @@
 import convertCitation from "./app.js"
 
+const currentLocation = location.origin
 let refStore = localStorage.getItem("end-ref")
 const storedRef = JSON.parse(refStore)
-const refLength = storedRef.length
+let refLength
+if (storedRef) {
+  refLength = storedRef.length
+}
 
 if (window.location.href.includes("index.html")) {
-  const device = navigator.userAgent
+  // const device = navigator.userAgent
   const citationInput = document.getElementById("rawCitation")
   const convertButton = document.getElementById("convertButton")
   const copyButton = document.getElementById("copyButton")
@@ -85,9 +89,10 @@ if (window.location.href.includes("index.html")) {
   // }
 }
 
-if (window.location.href.includes("cita-list.html")) {
+if (window.location.href.includes("end-citations.html")) {
   const listWrapper = document.getElementById("list-wrapper")
   const copyAllButton = document.getElementById("copyAllButton")
+  const clearAllButton = document.getElementById("clearAllButton")
   const listCounter = document.getElementById("listCounter")
   const counter = document.getElementById("counter")
 
@@ -98,6 +103,12 @@ if (window.location.href.includes("cita-list.html")) {
     range.selectNodeContents(listWrapper)
     selection.removeAllRanges()
     selection.addRange(range)
+  })
+
+  clearAllButton.addEventListener("click", evt => {
+    localStorage.clear()
+    listWrapper.textContent = ""
+    location.replace(`${currentLocation}/index.html`)
   })
 
   if (refLength > 0) {
