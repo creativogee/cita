@@ -1,20 +1,19 @@
-const staticCacheName = "cita-app-v01.33"
+const staticCacheName = "cita-app-v02.5"
 const dynamicCacheName = "site-dynamic"
 
 const assets = [
-  "index.html",
-  "about.html",
-  "end-citations.html",
+  "pages/index.html",
+  "pages/about.html",
+  "pages/references.html",
   "image/icon-72x72.png",
   "image/icon-192x192.png",
   "image/icon-256x256.png",
   "image/icon-384x384.png",
   "image/icon-512x512.png",
   "manifest.json",
-  "js/app.js",
-  "js/ui.js",
+  "js/algo/index.js",
+  "js/index.js",
   "js/config.js",
-  "js/store.js",
   "css/main.css",
 ]
 
@@ -39,7 +38,7 @@ self.addEventListener("install", evt => {
         cache.addAll(assets)
         console.log("service worker: caching assets...")
       })
-      .then(() => self.skipWaiting())
+      .then(() => self.skipWaiting()),
   )
 })
 
@@ -49,7 +48,7 @@ self.addEventListener("activate", evt => {
   evt.waitUntil(
     caches.keys().then(keys => {
       return Promise.all(keys.filter(key => key !== staticCacheName).map(key => caches.delete(key)))
-    })
+    }),
   )
 })
 
@@ -66,6 +65,6 @@ self.addEventListener("fetch", evt => {
           })
         })
       )
-    })
+    }),
   )
 })
