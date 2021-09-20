@@ -22,7 +22,7 @@ export const referencesHandler = () => {
 
     listWrapper.textContent = ""
 
-    location.replace(`${baseUrl}/index.html`)
+    location.replace(`${baseUrl}/pages/index.html`)
   })
 
   counter.textContent = store.total
