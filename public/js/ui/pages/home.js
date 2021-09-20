@@ -74,6 +74,8 @@ export const homeHandler = () => {
     counter.textContent = store.total
 
     result.textContent = ""
+
+    inText.textContent = ""
   })
 
   citationInput.addEventListener("focusin", () => {
