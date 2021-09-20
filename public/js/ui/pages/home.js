@@ -1,4 +1,3 @@
-// import convertCitation from "../app.js"
 import { convertCitation } from "../../algo/index.js"
 import { Store, dom } from "../helpers/index.js"
 import { Target } from "../factories/index.js"
@@ -7,7 +6,6 @@ import { home } from "../repositories/index.js"
 const store = new Store("end-ref")
 
 export const homeHandler = () => {
-  // const device = navigator.userAgent
   const {
     citationInput,
     convertButton,
@@ -82,7 +80,7 @@ export const homeHandler = () => {
     citationInput.select()
   })
 
-  // if (device.match(/Mobi|Android/i)) {
-  //   hint.textContent = "**long press to copy formatted text"
+  // if (navigator.userAgent.match(/Mobi|Android/i)) {
+  //
   // }
 }

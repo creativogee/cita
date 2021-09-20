@@ -27,7 +27,7 @@ body {
 }
 
 header {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 main {
@@ -88,7 +88,7 @@ main {
   border: 0.0625rem solid gray;
   border-radius: 0.3125rem;
   height: 12rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0 2rem;
   color: black;
 }
 
@@ -161,21 +161,17 @@ footer {
   visibility: hidden;
 }
 
-.counter-wrapper,
-.home-counter-wrapper {
-  position: relative;
+.counter-wrapper {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.home-counter,
-.list-counter {
-  position: absolute;
+.counter {
   height: 40px;
   width: 40px;
   border: 3px solid white;
   border-radius: 100%;
-  margin-bottom: 10px;
   background-color: red;
-  font-weight: 900;
   text-align: center;
   padding-top: 9px;
 }
